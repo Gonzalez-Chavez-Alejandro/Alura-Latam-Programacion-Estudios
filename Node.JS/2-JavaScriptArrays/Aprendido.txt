@@ -1,0 +1,12 @@
+Lo que aprendimos en esta aula:
+
+Cómo usar forEach:
+Aprendimos una forma más de iterar sobre arreglos, esta vez con su propio método. forEach recibe una función de callback que se ejecutará para cada 
+elemento de la matriz.
+
+Diferentes formas de usar las funciones de callback:
+Podemos usar funciones anónimas (como funciones de flecha) directamente como funciones de callback, o crear funciones externamente y usarlas en el parámetro.
+
+Cómo usar map():
+map también acepta funciones de callback, como forEach, y es adecuado para cuando queremos "reescribir" los valores de un arreglo, sin modificar el arreglo original. 
+Se crea un nuevo arreglo con los valores reescritos.
