@@ -1,0 +1,21 @@
+Lo que aprendimos en esta aula:
+
+Cómo usar forEach:
+Aprendimos una forma más de iterar sobre arreglos, esta vez con su propio método. forEach recibe una función de callback que se ejecutará para cada 
+elemento de la matriz.
+
+Diferentes formas de usar las funciones de callback:
+Podemos usar funciones anónimas (como funciones de flecha) directamente como funciones de callback, o crear funciones externamente y usarlas en el parámetro.
+
+Cómo usar map():
+map también acepta funciones de callback, como forEach, y es adecuado para cuando queremos "reescribir" los valores de un arreglo, sin modificar el arreglo original. 
+Se crea un nuevo arreglo con los valores reescritos.
+
+Lo que aprendimos en esta aula:
+
+Cómo usar el filter y reduce:
+Aprendimos métodos de JavaScript más modernos que nos ayudan en situaciones más específicas. Usamos filter para crear un arreglo filtrado a partir de una existente y reduce para acumular valores de un arreglo en una variable solamente.
+Cómo clonar arreglos con el spread operator.
+Entendemos el problema de referencia de JavaScript al intentar asignar un arreglo existente a un nuevo arreglo. Para resolver este problema, usamos el spread operator para distribuir todos los valores del arreglo existente en el nuevo, clonando con éxito.
+Cómo utilizar la estructura Set.
+Vimos cómo crear un Set a partir de un arreglo existente para eliminar todos sus duplicados. Luego usamos el spread operator para convertir el conjunto nuevamente en un arreglo.
