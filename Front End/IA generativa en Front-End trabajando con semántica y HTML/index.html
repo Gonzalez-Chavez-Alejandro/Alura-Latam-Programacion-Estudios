@@ -17,60 +17,68 @@
 </head>
 
 <body>
-    <div class="encabezado__container">
-        <div class="encabezado">
-            <a href="" class="encabezado__logo">
-                <img class="encabezado__logo--icono" alt="" src="./img/logoprovisriablanca-1@2x.png" />
-            </a>
-            <div class="encabezado__navegacion">
-                <a class="encabezado__navegacion--elemento" href="">Blog</a>
-                <a class="encabezado__navegacion--elemento" href="">Paquetes de viaje</a>
-                <a class="encabezado__navegacion--elemento" href="">Contacto</a>
+    <header class="encabezado__container">
+            <div class="encabezado">
+                    <a href="/" class="encabezado__logo" title="Página principal de Jornada">
+                        <img class="encabezado__logo--icono" alt="Logo de Jornada, empresa de viajes y turismo" src="./img/logoprovisriablanca-1@2x.png" />
+                    </a>
+                <nav class="encabezado__navegacion">
+                    <ul class="encabezado__navegacion--lista">
+                        <li class="encabezado__navegacion--elemento">
+                            <a href="/" aria-label="Enlace al blog de viajes">Blog</a>
+                        </li>
+                        <li class="encabezado__navegacion--elemento">
+                            <a  href="/" aria-label="Enlace a paquetes de viaje">Paquetes de viaje</a>
+                        </li>
+                        <li class="encabezado__navegacion--elemento">
+                            <a  href="/" aria-label="Enlace de contacto para consultas">Contacto</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-        </div>
-    </div>
+    
+    </header>
 
-    <div class="banner">
+    <section class="banner">
         <div class="banner__wrapper">
-            <img class="banner__img" alt="" src="./img/maldivas@2x.png" />
-            <div class="banner__descripcion">
-                Somos una agencia apasionada por crear viajes inolvidables. 
-                Desde el destino hasta la selección de actividades, nos 
-                encargamos de todos los detalles para que disfrutes al máximo
-                 cada momento de tu jornada.
-            </div>
+            <figure class="banner__img--wrapper">
+                <img class="banner__img" alt="Hombre en una canoa" src="./img/maldivas@2x.png" />
+                <figcaption class="banner__img--descripcion">Somos una agencia apasionada por crear viajes inolvidables. Desde el destino hasta la selección de actividades, nos encargamos de todos los detalles para que disfrutes al máximo cada momento de tu jornada.</figcaption>
+            </figure>
         </div>
-    </div>
-    <div class="container">
+    </section>
 
-        <div class="ofertas">
+
+    <main class="container">
+
+        <section class="ofertas__container">
             <div class="ofertas__titulo">
                 <div class="ofertas__titulo--texto">Ofertas de la semana</div>
                 <div class="ofertas__titulo--subrayado"></div>
             </div>
-            <div class="ofertas__cards">
-                <div class="ofertas__cards--grupo">
-                    <div class="ofertas__cards--elemento ofertas__cards--japon">
+            <section class="ofertas">
+                    <article class="ofertas__cards--elemento ofertas__cards--japon">
                         <div class="ofertas__card">
                             <div class="ofertas__card--contenido">
-                                <div class="ofertas__card--destino">
-                                    <div class="ofertas__card--destino-tipo">HOTEL+AÉREO</div>
-                                    <b class="ofertas__card--destino-nombre">Japón</b>
-                                </div>
+                                <header class="ofertas__card--destino">
+                                    <div class="ofertas__card--destino-tipo"> HOTEL+AÉREO</div>
+                                    <h2 class="ofertas__card--destino-nombre">Japón</h2>
+                                </header>
                                 <div class="ofertas__card--precio">$ 4000</div>
                                 <div class="ofertas__card--boton">
-                                    <span class="ofertas__card--boton-texto">Ver detalles</span>
+                                    <a href="#" class="ofertas__card--boton-texto">Ver detalles</a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="ofertas__cards--elemento  ofertas__cards--san-andreas">
+                    </article>
+            
+                    <article class="ofertas__cards--elemento  ofertas__cards--san-andreas">
                         <div class="ofertas__card">
                             <div class="ofertas__card--contenido">
-                                <div class="ofertas__card--destino">
-                                    <div class="ofertas__card--destino-tipo">HOTEL+AÉREO</div>
-                                    <b class="ofertas__card--destino-nombre">San Andreas</b>
-                                </div>
+                                <header class="ofertas__card--destino">
+                                    <p class="ofertas__card--destino-tipo">HOTEL+AÉREO</p>
+                                    <h2 class="ofertas__card--destino-nombre">San Andreas</h2>
+                                </header>
                                 <div class="ofertas__card--precio">$ 3000</div>
                                 <div class="ofertas__card--boton">
                                     <span class="ofertas__card--boton-texto">Ver detalles</span>
@@ -80,8 +88,9 @@
                     </div>
                     
                 </div>
-            </div>
-        </div>
+            </article>
+    </section>
+        </section>
 
         <div class="busca">
             <div class="busca__titulo">
@@ -249,6 +258,7 @@
                         <div class="testimonios__autor--info">
                             <b class="testimonios__autor--nombre">Lauro B. Matos</b>
                             <div class="testimonios__autor--evaluacion">
+                                
                                 <img class="testimonios__autor--evaluacion-estrella" alt="" src="./img/star-1.svg" />
                                 <img class="testimonios__autor--evaluacion-estrella" alt="" src="./img/star-1.svg" />
                                 <img class="testimonios__autor--evaluacion-estrella" alt="" src="./img/star-1.svg" />
@@ -261,11 +271,11 @@
 
             </div>
         </div>
-    </div>
+    </main>
 
     <img class="pre-footer__image" alt="" src="./img/pre-footer-image.png" />
     
-    <div class="footer__container">
+    <footer class="footer__container">
         <div class="footer">
             <div class="footer__logo-container">
                 <img class="footer__logo-icon" alt="" src="./img/logobranco-1@2x.png" />
@@ -291,7 +301,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </footer>
 
 
 </body>

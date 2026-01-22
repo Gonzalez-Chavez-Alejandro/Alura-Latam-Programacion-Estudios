@@ -1,39 +1,55 @@
-.encabezado__container {
+.encabezado__container {    
     background: var(--negro);
     width: 100%;
     padding: 40px 0;
+
 }
 
 .encabezado {
-    justify-content: space-between;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    height: 60px;
 }
 
 .encabezado__logo--icono {
     max-width: 260px;
 }
 
-.encabezado__navegacion {
+
+.encabezado__navegacion--lista {
     display: flex;
+    color: white;
     gap: 40px;
+    list-style-type: none;
 }
 
-.encabezado__navegacion--elemento {
+
+
+.encabezado__navegacion--elemento a {
     color: var(--blanco);
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    padding: 0%;
+
 }
+
+
+.banner__img--wrapper{
+    margin: 0;
+}
+
 
 .banner__img {
     max-width: 100%;
+    margin: 0;
 }
 
-.banner__descripcion {
+.banner__img--descripcion {
     max-width: 1200px;
     color: var(--grafito, #222);
     text-align: center;
@@ -49,8 +65,12 @@
     margin: 0 auto;
 }
 
+
+
 .ofertas {
     margin-bottom: 112px;
+    display: flex;
+    gap:40px;
 }
 
 .testimonios__titulo,
@@ -106,6 +126,7 @@ img {
     flex: 1 0 calc(50% - 48px);
     box-sizing: border-box;
     text-align: center;
+    width:34vw;
 }
 
 .ofertas__cards--japon {
