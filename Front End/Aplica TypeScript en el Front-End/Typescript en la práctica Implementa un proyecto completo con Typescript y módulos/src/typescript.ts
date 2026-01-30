@@ -18,14 +18,23 @@ lista.push(22, 55, 22, 44, 66);
  
 //Tipos personalizados (typebank.ts)
 //Restringir los tipos de datos y que nombres espesificos deben de tener las propiedades de un objeto.
+
+enum TipoTransaccion{
+    DEPOSITO="Depósito",
+    TRANSFERENCIA ="Transferencia",
+    PAGO_FACTURA="Pagamento de Boleto"
+}
 type Transaccion={
-    tipoTransaccion:string,
+    tipoTransaccion:TipoTransaccion,
     fecha:Date,
     valor:number
 }
 
 const nuevaTransaccion :Transaccion = {
-    tipoTransaccion:"",
+    tipoTransaccion:TipoTransaccion.DEPOSITO,
     fecha:new Date(),
     valor:0,
 }
+console.log(nuevaTransaccion);
+
+
