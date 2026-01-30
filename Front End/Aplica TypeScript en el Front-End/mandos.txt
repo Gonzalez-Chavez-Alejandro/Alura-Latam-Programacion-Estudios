@@ -1,0 +1,1 @@
+PS C:\Users\a17ju\Music\Portafolio\Alura-Latam-Programacion-Estudios\Front End\Aplica TypeScript en el Front-End\Typescript en la práctica Implementa un proyecto completo con Typescript y módulos> tsc

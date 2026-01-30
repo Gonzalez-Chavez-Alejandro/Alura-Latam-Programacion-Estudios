@@ -4,10 +4,15 @@ if (elementoSaldo != null) {
     elementoSaldo.textContent = saldo.toString();
 }
 var elementoFormulario = document.querySelector(".block-nueva-transaccion form");
+var campos = elementoFormulario.querySelectorAll(".campo-input");
+campos.forEach(function (campo) { return campo.classList.remove("campo-error"); });
 elementoFormulario.addEventListener("submit", function (event) {
     event.preventDefault();
     if (!elementoFormulario.checkValidity()) {
         alert("Por favor, rellene todos los campos de la transacción");
+        campos.forEach(function (campo) { if (!campo.checkValidity()) {
+            campo.classList.add("campo-error");
+        } });
         return;
     }
     var inputTipoTransaccion = elementoFormulario.querySelector("#tipoTransaccion");

@@ -6,10 +6,14 @@ if (elementoSaldo != null) {
 }
 
 const elementoFormulario = document.querySelector(".block-nueva-transaccion form") as HTMLFormElement;
+ const campos = elementoFormulario.querySelectorAll<HTMLInputElement>(".campo-input");
+
+    campos.forEach(campo => campo.classList.remove("campo-error"));
 elementoFormulario.addEventListener("submit", function(event) {
     event.preventDefault();
     if (!elementoFormulario.checkValidity()) {
         alert("Por favor, rellene todos los campos de la transacción");
+        campos.forEach(campo => { if (!campo.checkValidity()) { campo.classList.add("campo-error"); } });
         return;
     }
 

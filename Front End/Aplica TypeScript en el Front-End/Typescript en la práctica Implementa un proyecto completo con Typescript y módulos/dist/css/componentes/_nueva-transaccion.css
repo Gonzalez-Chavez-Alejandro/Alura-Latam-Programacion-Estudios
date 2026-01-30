@@ -18,6 +18,10 @@
         width: 355px;
     }
 
+    & .campo-error {
+        border: 2px solid red !important;
+    }
+
     @media (max-width: 950px) {
         width: 100%;
     }
