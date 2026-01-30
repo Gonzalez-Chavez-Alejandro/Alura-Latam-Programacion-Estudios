@@ -1,8 +1,3 @@
-let saldo = 3000;
-const elementoSaldo = document.querySelector(".saldo-valor .valor");
-if (elementoSaldo != null) {
-    elementoSaldo.textContent = saldo.toString();
-}
 const elementoFormulario = document.querySelector(".block-nueva-transaccion form");
 const campos = elementoFormulario.querySelectorAll(".campo-input");
 campos.forEach(campo => campo.classList.remove("campo-error"));

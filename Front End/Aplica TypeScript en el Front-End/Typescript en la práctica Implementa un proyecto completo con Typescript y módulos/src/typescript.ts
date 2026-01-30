@@ -1,4 +1,5 @@
-let valor =3000;
+/*Practica de Typescript*/
+/*let valor =3000;
 
 valor=22;
 
@@ -38,3 +39,4 @@ const nuevaTransaccion :Transaccion = {
 console.log(nuevaTransaccion);
 
 
+*/

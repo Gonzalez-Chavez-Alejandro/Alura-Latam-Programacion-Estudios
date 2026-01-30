@@ -1,10 +1,3 @@
-let saldo = 3000;
-
-const elementoSaldo = document.querySelector(".saldo-valor .valor") as HTMLElement;
-if (elementoSaldo != null) {
-    elementoSaldo.textContent = saldo.toString();
-}
-
 const elementoFormulario = document.querySelector(".block-nueva-transaccion form") as HTMLFormElement;
  const campos = elementoFormulario.querySelectorAll<HTMLInputElement>(".campo-input");
 
