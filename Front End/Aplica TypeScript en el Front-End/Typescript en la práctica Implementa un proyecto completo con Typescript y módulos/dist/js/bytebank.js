@@ -1,26 +1,27 @@
-var saldo = 3000;
-var elementoSaldo = document.querySelector(".saldo-valor .valor");
+let saldo = 3000;
+alert("prueba de typescript funcionando");
+const elementoSaldo = document.querySelector(".saldo-valor .valor");
 if (elementoSaldo != null) {
     elementoSaldo.textContent = saldo.toString();
 }
-var elementoFormulario = document.querySelector(".block-nueva-transaccion form");
-var campos = elementoFormulario.querySelectorAll(".campo-input");
-campos.forEach(function (campo) { return campo.classList.remove("campo-error"); });
+const elementoFormulario = document.querySelector(".block-nueva-transaccion form");
+const campos = elementoFormulario.querySelectorAll(".campo-input");
+campos.forEach(campo => campo.classList.remove("campo-error"));
 elementoFormulario.addEventListener("submit", function (event) {
     event.preventDefault();
     if (!elementoFormulario.checkValidity()) {
         alert("Por favor, rellene todos los campos de la transacción");
-        campos.forEach(function (campo) { if (!campo.checkValidity()) {
+        campos.forEach(campo => { if (!campo.checkValidity()) {
             campo.classList.add("campo-error");
         } });
         return;
     }
-    var inputTipoTransaccion = elementoFormulario.querySelector("#tipoTransaccion");
-    var inputValor = elementoFormulario.querySelector("#valor");
-    var inputFecha = elementoFormulario.querySelector("#fecha");
-    var tipoTransaccion = inputTipoTransaccion.value;
-    var valor = inputValor.valueAsNumber;
-    var fecha = new Date(inputFecha.value);
+    const inputTipoTransaccion = elementoFormulario.querySelector("#tipoTransaccion");
+    const inputValor = elementoFormulario.querySelector("#valor");
+    const inputFecha = elementoFormulario.querySelector("#fecha");
+    let tipoTransaccion = inputTipoTransaccion.value;
+    let valor = inputValor.valueAsNumber;
+    let fecha = new Date(inputFecha.value);
     if (tipoTransaccion == "Depósito") {
         saldo += valor;
     }
@@ -32,7 +33,7 @@ elementoFormulario.addEventListener("submit", function (event) {
         return;
     }
     elementoSaldo.textContent = saldo.toString();
-    var nuevaTransaccion = {
+    const nuevaTransaccion = {
         tipoTransaccion: tipoTransaccion,
         valor: valor,
         fecha: fecha
