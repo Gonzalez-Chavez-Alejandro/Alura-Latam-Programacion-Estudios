@@ -1,8 +1,8 @@
 const elementoFormulario = document.querySelector(".block-nueva-transaccion form") as HTMLFormElement;
- const campos = elementoFormulario.querySelectorAll<HTMLInputElement>(".campo-input");
+const campos = elementoFormulario.querySelectorAll<HTMLInputElement>(".campo-input");
 
-    campos.forEach(campo => campo.classList.remove("campo-error"));
-elementoFormulario.addEventListener("submit", function(event) {
+campos.forEach(campo => campo.classList.remove("campo-error"));
+elementoFormulario.addEventListener("submit", function (event) {
     event.preventDefault();
     if (!elementoFormulario.checkValidity()) {
         alert("Por favor, rellene todos los campos de la transacción");
@@ -27,9 +27,9 @@ elementoFormulario.addEventListener("submit", function(event) {
         return;
     }
 
-    elementoSaldo.textContent = saldo.toLocaleString("en-US",{currency:"USD", style:"currency"});
+    elementoSaldo.textContent = saldo.toLocaleString("en-US", { currency: "USD", style: "currency" });
 
-    const nuevaTransaccion :Transaccion = {
+    const nuevaTransaccion: Transaccion = {
         tipoTransaccion: tipoTransaccion,
         valor: valor,
         fecha: fecha,
