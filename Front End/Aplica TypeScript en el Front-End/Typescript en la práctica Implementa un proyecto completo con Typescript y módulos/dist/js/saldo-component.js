@@ -6,5 +6,5 @@ if (elementoSaldo != null) {
 }
 if (elementoFecha) {
     const fechaAcceso = new Date();
-    elementoFecha.textContent = formatearValorFecha(fechaAcceso);
+    elementoFecha.textContent = formatearValorFecha(fechaAcceso, FormatoFecha.DIA_SEMANA_DIA_MES_YEAR);
 }
