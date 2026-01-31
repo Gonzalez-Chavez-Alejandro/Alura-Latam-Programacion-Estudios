@@ -1,19 +1,20 @@
 import { FormatoFecha } from "../types/FormatoFecha.js";
 import { formatearMoneda, formatearValorFecha } from "../utils/formatters.js";
-let saldo = 3000;
+import Cuenta from "../types/Cuenta.js";
 const elementoFecha = document.querySelector(".block-saldo time");
 const elementoSaldo = document.querySelector(".saldo-valor .valor");
 if (elementoFecha) {
-    const fechaAcceso = new Date();
-    elementoFecha.textContent = formatearValorFecha(fechaAcceso, FormatoFecha.DIA_SEMANA_DIA_MES_YEAR);
+    elementoFecha.textContent = formatearValorFecha(Cuenta.getFechaDeAcceso(), FormatoFecha.DIA_SEMANA_DIA_MES_YEAR);
 }
-export function getSaldo() {
-    return saldo;
-}
-actualizarSaldo(saldo);
-export function actualizarSaldo(nuevoSaldo) {
-    saldo = nuevoSaldo;
+renderizarSaldo();
+export function renderizarSaldo() {
     if (elementoSaldo != null) {
-        elementoSaldo.textContent = formatearMoneda(saldo);
+        elementoSaldo.textContent = formatearMoneda(Cuenta.getSaldo());
     }
 }
+const saldoComponent = {
+    actualizar() {
+        renderizarSaldo();
+    }
+};
+export default saldoComponent;
