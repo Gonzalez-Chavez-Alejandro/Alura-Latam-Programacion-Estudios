@@ -2,6 +2,23 @@ import { TipoTransaccion } from "./TipoTransaccion.js";
 import { Transaccion } from "./Transaccion.js";
 
 let saldo: number = 3000;
+function debitar (valor:number){
+    if (valor <= 0) {
+        throw new Error("El valor a se debitado debe de ser mayor que cero");
+    }
+    if (valor > saldo) {
+        throw new Error("Saldo insuficiente");
+    }
+
+    saldo -= valor;
+}
+function depositar(valor:number){
+    if (valor <= 0) {
+        throw new Error("El valor a ser depositado debe de ser mayor que cero");
+    }
+    saldo += valor;
+}
+
 const Cuenta={
     getSaldo(){
         return saldo;
@@ -11,12 +28,11 @@ const Cuenta={
     },
     registrarTransaccion(nuevaTransaccion:Transaccion):void{
         if (nuevaTransaccion.tipoTransaccion == TipoTransaccion.DEPOSITO) {
-                saldo += nuevaTransaccion.valor;
+                depositar(nuevaTransaccion.valor);
             } else if (nuevaTransaccion.tipoTransaccion == TipoTransaccion.TRANSFERENCIA || nuevaTransaccion.tipoTransaccion == TipoTransaccion.PAGO_FACTURA) {
-                saldo -= nuevaTransaccion.valor;
+                debitar(nuevaTransaccion.valor);
             } else {
-                alert("Tipo de transacción invalida");
-                return;
+                throw new Error("Tipo de transacción invalido");
             } 
             console.log("Transacción registrada con éxito", nuevaTransaccion);
     }

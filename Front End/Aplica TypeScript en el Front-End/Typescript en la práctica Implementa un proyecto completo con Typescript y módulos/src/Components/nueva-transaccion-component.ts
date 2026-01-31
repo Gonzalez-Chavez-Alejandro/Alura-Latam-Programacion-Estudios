@@ -8,6 +8,7 @@ const campos = elementoFormulario.querySelectorAll<HTMLInputElement>(".campo-inp
 
 campos.forEach(campo => campo.classList.remove("campo-error"));
 elementoFormulario.addEventListener("submit", function (event) {
+    try{ 
     event.preventDefault();
     if (!elementoFormulario.checkValidity()) {
         alert("Por favor, rellene todos los campos de la transacción");
@@ -36,4 +37,7 @@ elementoFormulario.addEventListener("submit", function (event) {
     saldoComponent.actualizar();
 
     elementoFormulario.reset();
+    }catch(error){
+        alert(error.message);
+    }
 });
