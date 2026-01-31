@@ -1,3 +1,5 @@
+import { TipoTransaccion } from "../types/TipoTransaccion.js";
+import { actualizarSaldo, getSaldo } from "./saldo-component.js";
 const elementoFormulario = document.querySelector(".block-nueva-transaccion form");
 const campos = elementoFormulario.querySelectorAll(".campo-input");
 campos.forEach(campo => campo.classList.remove("campo-error"));
@@ -16,6 +18,7 @@ elementoFormulario.addEventListener("submit", function (event) {
     let tipoTransaccion = inputTipoTransaccion.value;
     let valor = inputValor.valueAsNumber;
     let fecha = new Date(inputFecha.value);
+    let saldo = getSaldo();
     if (tipoTransaccion == TipoTransaccion.DEPOSITO) {
         saldo += valor;
     }
@@ -26,7 +29,7 @@ elementoFormulario.addEventListener("submit", function (event) {
         alert("Tipo de transacción invalida");
         return;
     }
-    elementoSaldo.textContent = formatearMoneda(saldo);
+    actualizarSaldo(saldo);
     const nuevaTransaccion = {
         tipoTransaccion: tipoTransaccion,
         valor: valor,
