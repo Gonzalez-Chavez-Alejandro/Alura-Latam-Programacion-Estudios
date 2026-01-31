@@ -1,7 +1,8 @@
-function formatearMoneda(valor) {
+import { FormatoFecha } from "../types/FormatoFecha.js";
+export function formatearMoneda(valor) {
     return valor.toLocaleString("en-US", { currency: "USD", style: "currency" });
 }
-function formatearValorFecha(fecha, formato = FormatoFecha.PATRON) {
+export function formatearValorFecha(fecha, formato = FormatoFecha.PATRON) {
     if (formato === FormatoFecha.DIA_SEMANA_DIA_MES_YEAR) {
         return fecha.toLocaleDateString("es-ES", {
             weekday: "long",

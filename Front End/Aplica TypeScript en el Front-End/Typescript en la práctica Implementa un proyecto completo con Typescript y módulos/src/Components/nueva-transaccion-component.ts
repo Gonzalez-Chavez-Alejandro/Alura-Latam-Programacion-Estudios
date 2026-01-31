@@ -1,3 +1,8 @@
+import { TipoTransaccion } from "../types/TipoTransaccion.js";
+import { formatearMoneda } from "../utils/formatters.js";
+import { Transaccion } from "../types/Transaccion.js";
+
+
 const elementoFormulario = document.querySelector(".block-nueva-transaccion form") as HTMLFormElement;
 const campos = elementoFormulario.querySelectorAll<HTMLInputElement>(".campo-input");
 

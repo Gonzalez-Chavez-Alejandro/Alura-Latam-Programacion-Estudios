@@ -1,8 +1,11 @@
-function formatearMoneda(valor: number): string {
+import { FormatoFecha } from "../types/FormatoFecha.js";
+   
+
+export function formatearMoneda(valor: number): string {
     return valor.toLocaleString("en-US", { currency: "USD", style: "currency" });
 
 }
-function formatearValorFecha(fecha: Date, formato: FormatoFecha = FormatoFecha.PATRON): string {
+export function formatearValorFecha(fecha: Date, formato: FormatoFecha = FormatoFecha.PATRON): string {
     if (formato === FormatoFecha.DIA_SEMANA_DIA_MES_YEAR) {
 
         return fecha.toLocaleDateString("es-ES", {
