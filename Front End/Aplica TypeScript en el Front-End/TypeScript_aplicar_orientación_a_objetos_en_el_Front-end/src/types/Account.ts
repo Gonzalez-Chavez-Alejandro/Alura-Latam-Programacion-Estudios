@@ -7,17 +7,14 @@ import { Storage } from "./Storage.js";
 export class Account {
     // Atributos
     private name: string;
-    public balance: number = Storage.read('balance') || 0;
-    private transactions: Transaction[] = Storage.read('transactions', (key: string, value: string) => {
-        if (key === 'date') {
+    public balance: number = Storage.read<number>('balance') || 0;
+    private transactions: Transaction[] =
+     Storage.read<Transaction[]>('transactions', (key: string, value: string) => {
+        if (key === 'date') { 
             return new Date(value)
         }
-
         return value
     }) || []
-
-
-
 
     //Constructor
     constructor(name: string) {
