@@ -1,4 +1,4 @@
-import Account from '../types/Account-old'
+import Account from '../types/Account'
 import { FormatDate } from '../types/FormatDate'
 import { GroupTransaction } from '../types/GroupTransaction'
 import { formatCurrency, formatDate } from '../utils/formatters'

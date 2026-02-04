@@ -1,7 +1,7 @@
 import { Transaction } from '../types/Transaction'
 import { TransactionType } from '../types/TransactionType'
 import BalanceComponent from './balance-component'
-import Account from '../types/Account-old'
+import Account from '../types/Account'
 import StatementComponent from './statement-component'
 
 const elementForm = document.querySelector(

@@ -1,6 +1,6 @@
 import { formatDate, formatCurrency } from '../utils/formatters'
 import { FormatDate } from '../types/FormatDate'
-import Account from '../types/Account-old'
+import Account from '../types/Account'
 
 const balanceElement = document.querySelector(
   '.balance-value .value'
