@@ -18,6 +18,9 @@ export class Account {
         }) : [];
     }
     //Metodos
+    getName() {
+        return this.name;
+    }
     getBalance() {
         return this.balance;
     }
@@ -91,3 +94,5 @@ export class AccountPremium extends Account {
     }
 }
 const luis = new AccountPremium("Luis Lopez", 100);
+const newUser = new Account("Laura");
+console.log(newUser.getName());
