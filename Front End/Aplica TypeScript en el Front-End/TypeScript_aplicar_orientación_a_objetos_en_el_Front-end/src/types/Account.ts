@@ -2,7 +2,7 @@ import { GroupTransaction } from "./GroupTransaction.js";
 import { Transaction } from "./Transaction.js";
 import { TransactionType } from "./TransactionType.js";
 import { Storage } from "./Storage.js";
-import { DebitValidation } from "./Decorators.js";
+import { DebitValidation, DepositValidation } from "./Decorators.js";
 
 export class Account {
     // Atributos
@@ -19,20 +19,6 @@ export class Account {
     //Constructor
     constructor(name: string) {
         this.name = name;
-        // const savedBalance = localStorage.getItem('balance')
-        // this.balance = savedBalance ? JSON.parse(savedBalance) : 0
-
-        // const savedTransactions = localStorage.getItem('transactions')
-        // this.transactions = savedTransactions ? JSON.parse(
-        //    savedTransactions,
-        //    (key: string, value: string) => {
-        //       if (key === 'date') {
-        //            return new Date(value)
-        //      }
-
-        //      return value
-        //   }
-        // ) : []
     }
     //Metodos
     getName() {
@@ -49,11 +35,9 @@ export class Account {
         this.balance -= value
         Storage.save('balance', this.balance)
     }
-
+    @DepositValidation
     deposit(value: number): void {
-        if (value <= 0) {
-            throw new Error('El valor a ser depositado debe ser mayor que cero!')
-        }
+        
 
         this.balance += value
         Storage.save('balance', this.balance)

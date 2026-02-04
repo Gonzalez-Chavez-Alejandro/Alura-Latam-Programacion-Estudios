@@ -7,7 +7,17 @@ export function DebitValidation(target, property, descriptor) {
         if (debitValue > this.balance) {
             throw new Error("Saldo insuficiente!");
         }
-        return originalMethod.appy(this, [debitValue]);
+        return originalMethod.apply(this, [debitValue]); // Corrección aquí
+    };
+    return descriptor;
+}
+export function DepositValidation(target, property, descriptor) {
+    const originalMethod = descriptor.value;
+    descriptor.value = function (depositValue) {
+        if (depositValue <= 0) {
+            throw new Error("El valor a ser depositado debe ser mayor que cero");
+        }
+        return originalMethod.apply(this, [depositValue]); // Corrección aquí
     };
     return descriptor;
 }

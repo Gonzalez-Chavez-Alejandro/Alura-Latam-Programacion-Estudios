@@ -6,7 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { TransactionType } from "./TransactionType.js";
 import { Storage } from "./Storage.js";
-import { DebitValidation } from "./Decorators.js";
+import { DebitValidation, DepositValidation } from "./Decorators.js";
 export class Account {
     // Atributos
     name;
@@ -20,18 +20,6 @@ export class Account {
     //Constructor
     constructor(name) {
         this.name = name;
-        // const savedBalance = localStorage.getItem('balance')
-        // this.balance = savedBalance ? JSON.parse(savedBalance) : 0
-        // const savedTransactions = localStorage.getItem('transactions')
-        // this.transactions = savedTransactions ? JSON.parse(
-        //    savedTransactions,
-        //    (key: string, value: string) => {
-        //       if (key === 'date') {
-        //            return new Date(value)
-        //      }
-        //      return value
-        //   }
-        // ) : []
     }
     //Metodos
     getName() {
@@ -48,9 +36,6 @@ export class Account {
         Storage.save('balance', this.balance);
     }
     deposit(value) {
-        if (value <= 0) {
-            throw new Error('El valor a ser depositado debe ser mayor que cero!');
-        }
         this.balance += value;
         Storage.save('balance', this.balance);
     }
@@ -92,6 +77,9 @@ export class Account {
 __decorate([
     DebitValidation
 ], Account.prototype, "debit", null);
+__decorate([
+    DepositValidation
+], Account.prototype, "deposit", null);
 export default new Account('Juana Ferreira');
 export class AccountPremium extends Account {
     premiumBonus;
