@@ -47,3 +47,6 @@ __decorate([
 ], Vehiculo.prototype, "arrancar", null);
 const miVehiculo = new Vehiculo("Toyota");
 miVehiculo.arrancar();
+//consola :
+// Llamando al método arrancar fue llamado
+// Toyota ha arrancado
