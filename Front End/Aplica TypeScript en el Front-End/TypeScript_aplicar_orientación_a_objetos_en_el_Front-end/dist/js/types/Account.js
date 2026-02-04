@@ -1,21 +1,30 @@
 import { TransactionType } from "./TransactionType.js";
+import { Storage } from "./Storage.js";
 export class Account {
     // Atributos
     name;
-    balance;
-    transactions;
+    balance = Storage.read('balance') || 0;
+    transactions = Storage.read('transactions', (key, value) => {
+        if (key === 'date') {
+            return new Date(value);
+        }
+        return value;
+    }) || [];
     //Constructor
     constructor(name) {
         this.name = name;
-        const savedBalance = localStorage.getItem('balance');
-        this.balance = savedBalance ? JSON.parse(savedBalance) : 0;
-        const savedTransactions = localStorage.getItem('transactions');
-        this.transactions = savedTransactions ? JSON.parse(savedTransactions, (key, value) => {
-            if (key === 'date') {
-                return new Date(value);
-            }
-            return value;
-        }) : [];
+        // const savedBalance = localStorage.getItem('balance')
+        // this.balance = savedBalance ? JSON.parse(savedBalance) : 0
+        // const savedTransactions = localStorage.getItem('transactions')
+        // this.transactions = savedTransactions ? JSON.parse(
+        //    savedTransactions,
+        //    (key: string, value: string) => {
+        //       if (key === 'date') {
+        //            return new Date(value)
+        //      }
+        //      return value
+        //   }
+        // ) : []
     }
     //Metodos
     getName() {
@@ -35,14 +44,14 @@ export class Account {
             throw new Error('Saldo insuficiente!');
         }
         this.balance -= value;
-        localStorage.setItem('balance', this.balance.toString());
+        Storage.save('balance', this.balance);
     }
     deposit(value) {
         if (value <= 0) {
             throw new Error('El valor a ser depositado debe ser mayor que cero!');
         }
         this.balance += value;
-        localStorage.setItem('balance', this.balance.toString());
+        Storage.save('balance', this.balance);
     }
     getTransactionGroups() {
         const transactionGroups = [];
@@ -76,7 +85,7 @@ export class Account {
         }
         this.transactions.push(newTransaction);
         console.log(this.getTransactionGroups());
-        localStorage.setItem('transactions', JSON.stringify(this.transactions));
+        Storage.save('transactions', this.transactions);
     }
 }
 export default new Account('Juana Ferreira');

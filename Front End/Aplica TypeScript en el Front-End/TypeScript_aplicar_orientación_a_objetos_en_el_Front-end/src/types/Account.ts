@@ -1,33 +1,44 @@
 import { GroupTransaction } from "./GroupTransaction.js";
 import { Transaction } from "./Transaction.js";
 import { TransactionType } from "./TransactionType.js";
+import { Storage } from "./Storage.js";
+
 
 export class Account {
     // Atributos
     private name: string;
-    public balance: number;
-    transactions: Transaction[];
+    public balance: number = Storage.read('balance') || 0;
+    private transactions: Transaction[] = Storage.read('transactions', (key: string, value: string) => {
+        if (key === 'date') {
+            return new Date(value)
+        }
+
+        return value
+    }) || []
+
+
+
 
     //Constructor
     constructor(name: string) {
         this.name = name;
-        const savedBalance = localStorage.getItem('balance')
-        this.balance = savedBalance ? JSON.parse(savedBalance) : 0
+        // const savedBalance = localStorage.getItem('balance')
+        // this.balance = savedBalance ? JSON.parse(savedBalance) : 0
 
-        const savedTransactions = localStorage.getItem('transactions')
-        this.transactions = savedTransactions ? JSON.parse(
-            savedTransactions,
-            (key: string, value: string) => {
-                if (key === 'date') {
-                    return new Date(value)
-                }
+        // const savedTransactions = localStorage.getItem('transactions')
+        // this.transactions = savedTransactions ? JSON.parse(
+        //    savedTransactions,
+        //    (key: string, value: string) => {
+        //       if (key === 'date') {
+        //            return new Date(value)
+        //      }
 
-                return value
-            }
-        ) : []
+        //      return value
+        //   }
+        // ) : []
     }
     //Metodos
-    getName(){
+    getName() {
         return this.name;
     }
     getBalance() {
@@ -46,7 +57,7 @@ export class Account {
         }
 
         this.balance -= value
-        localStorage.setItem('balance', this.balance.toString())
+        Storage.save('balance', this.balance)
     }
 
     deposit(value: number): void {
@@ -55,7 +66,7 @@ export class Account {
         }
 
         this.balance += value
-        localStorage.setItem('balance', this.balance.toString())
+        Storage.save('balance', this.balance)
     }
 
     getTransactionGroups(): GroupTransaction[] {
@@ -84,7 +95,7 @@ export class Account {
         return transactionGroups
     }
 
-     registerTransaction(newTransaction: Transaction): void {
+    registerTransaction(newTransaction: Transaction): void {
         if (newTransaction.transactionType == TransactionType.DEPOSIT) {
             this.deposit(newTransaction.value)
         } else if (
@@ -99,7 +110,7 @@ export class Account {
 
         this.transactions.push(newTransaction)
         console.log(this.getTransactionGroups())
-        localStorage.setItem('transactions', JSON.stringify(this.transactions))
+        Storage.save('transactions', this.transactions)
     }
 }
 
@@ -119,6 +130,6 @@ export class AccountPremium extends Account {
     }
 }
 
-const luis =new AccountPremium("Luis Lopez",100);
+const luis = new AccountPremium("Luis Lopez", 100);
 const newUser = new Account("Laura")
 console.log(newUser.getName());
