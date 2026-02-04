@@ -1,5 +1,12 @@
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 import { TransactionType } from "./TransactionType.js";
 import { Storage } from "./Storage.js";
+import { DebitValidation } from "./Decorators.js";
 export class Account {
     // Atributos
     name;
@@ -37,12 +44,6 @@ export class Account {
         return new Date();
     }
     debit(value) {
-        if (value <= 0) {
-            throw new Error('El valor a ser debitado debe ser mayor que cero!');
-        }
-        if (value > this.balance) {
-            throw new Error('Saldo insuficiente!');
-        }
         this.balance -= value;
         Storage.save('balance', this.balance);
     }
@@ -88,6 +89,9 @@ export class Account {
         Storage.save('transactions', this.transactions);
     }
 }
+__decorate([
+    DebitValidation
+], Account.prototype, "debit", null);
 export default new Account('Juana Ferreira');
 export class AccountPremium extends Account {
     premiumBonus;

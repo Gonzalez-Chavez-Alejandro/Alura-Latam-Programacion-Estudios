@@ -2,19 +2,19 @@ import { GroupTransaction } from "./GroupTransaction.js";
 import { Transaction } from "./Transaction.js";
 import { TransactionType } from "./TransactionType.js";
 import { Storage } from "./Storage.js";
-
+import { DebitValidation } from "./Decorators.js";
 
 export class Account {
     // Atributos
     private name: string;
     public balance: number = Storage.read<number>('balance') || 0;
     private transactions: Transaction[] =
-     Storage.read<Transaction[]>('transactions', (key: string, value: string) => {
-        if (key === 'date') { 
-            return new Date(value)
-        }
-        return value
-    }) || []
+        Storage.read<Transaction[]>('transactions', (key: string, value: string) => {
+            if (key === 'date') {
+                return new Date(value)
+            }
+            return value
+        }) || []
 
     //Constructor
     constructor(name: string) {
@@ -44,15 +44,8 @@ export class Account {
     getAccessDate(): Date {
         return new Date()
     }
-
+    @DebitValidation
     debit(value: number): void {
-        if (value <= 0) {
-            throw new Error('El valor a ser debitado debe ser mayor que cero!')
-        }
-        if (value > this.balance) {
-            throw new Error('Saldo insuficiente!')
-        }
-
         this.balance -= value
         Storage.save('balance', this.balance)
     }

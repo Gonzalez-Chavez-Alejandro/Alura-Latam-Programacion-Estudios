@@ -1,6 +1,13 @@
-//01decorador de clase
-class Personas {
-    nombres;
-    edades;
+export function DebitValidation(target, property, descriptor) {
+    const originalMethod = descriptor.value;
+    descriptor.value = function (debitValue) {
+        if (debitValue <= 0) {
+            throw new Error("El valor a ser debitado debe ser mayor que cero");
+        }
+        if (debitValue > this.balance) {
+            throw new Error("Saldo insuficiente!");
+        }
+        return originalMethod.appy(this, [debitValue]);
+    };
+    return descriptor;
 }
-//02decorador de metodo
