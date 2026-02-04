@@ -21,3 +21,4 @@ class Persona {
 
 const persona1 = new Persona("Juan", 30);
 console.log((persona1 as any).esMayorDeEdad()); // true
+ 
