@@ -99,4 +99,21 @@ export class Account {
         localStorage.setItem('transactions', JSON.stringify(this.transactions))
     }
 }
+
 export default new Account('Juana Ferreira');
+
+export class AccountPremium extends Account {
+    premiumBonus: number
+    constructor(name: string, bonus: number) {
+        super(name)
+        this.premiumBonus = bonus
+    }
+    registerTransaction(newTransaction: Transaction): void {
+        if (newTransaction.transactionType === TransactionType.DEPOSIT) {
+            newTransaction.value += this.premiumBonus
+        }
+        super.registerTransaction(newTransaction)
+    }
+}
+
+const luis =new AccountPremium("Luis Lopez",100);
