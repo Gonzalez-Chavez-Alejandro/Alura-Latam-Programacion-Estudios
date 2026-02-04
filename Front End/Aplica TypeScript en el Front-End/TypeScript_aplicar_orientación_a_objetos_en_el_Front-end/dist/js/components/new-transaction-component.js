@@ -1,6 +1,6 @@
-import BalanceComponent from './balance-component';
-import Account from '../types/Account';
-import StatementComponent from './statement-component';
+import BalanceComponent from './balance-component.js';
+import Account from '../types/Account.js';
+import StatementComponent from './statement-component.js';
 const elementForm = document.querySelector('.block-new-transaction form');
 elementForm.addEventListener('submit', function (event) {
     try {

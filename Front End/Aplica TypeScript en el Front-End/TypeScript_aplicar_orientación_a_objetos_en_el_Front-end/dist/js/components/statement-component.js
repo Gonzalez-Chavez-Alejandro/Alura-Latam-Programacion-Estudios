@@ -1,6 +1,6 @@
-import Account from '../types/Account';
-import { FormatDate } from '../types/FormatDate';
-import { formatCurrency, formatDate } from '../utils/formatters';
+import Account from '../types/Account.js';
+import { FormatDate } from '../types/FormatDate.js';
+import { formatCurrency, formatDate } from '../utils/formatters.js';
 const transactionRecordElement = document.querySelector('.statement .register-transactions');
 renderStatement();
 function renderStatement() {

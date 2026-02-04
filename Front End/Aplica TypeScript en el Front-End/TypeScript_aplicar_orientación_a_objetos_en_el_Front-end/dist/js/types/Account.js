@@ -1,38 +1,49 @@
-import { TransactionType } from './TransactionType';
-let balance = JSON.parse(localStorage.getItem('balance')) || 0;
-const transactions = JSON.parse(localStorage.getItem('transactions'), (key, value) => {
-    if (key === 'date') {
-        return new Date(value);
+import { TransactionType } from "./TransactionType.js";
+export class Account {
+    // Atributos
+    name;
+    balance;
+    transactions;
+    //Constructor
+    constructor(name) {
+        this.name = name;
+        const savedBalance = localStorage.getItem('balance');
+        this.balance = savedBalance ? JSON.parse(savedBalance) : 0;
+        const savedTransactions = localStorage.getItem('transactions');
+        this.transactions = savedTransactions ? JSON.parse(savedTransactions, (key, value) => {
+            if (key === 'date') {
+                return new Date(value);
+            }
+            return value;
+        }) : [];
     }
-    return value;
-}) || [];
-function debit(value) {
-    if (value <= 0) {
-        throw new Error('El valor a ser debitado debe ser mayor que cero!');
-    }
-    if (value > balance) {
-        throw new Error('Saldo insuficiente!');
-    }
-    balance -= value;
-    localStorage.setItem('balance', balance.toString());
-}
-function deposit(value) {
-    if (value <= 0) {
-        throw new Error('El valor a ser depositado debe ser mayor que cero!');
-    }
-    balance += value;
-    localStorage.setItem('balance', balance.toString());
-}
-const Account = {
+    //Metodos
     getBalance() {
-        return balance;
-    },
+        return this.balance;
+    }
     getAccessDate() {
         return new Date();
-    },
+    }
+    debit(value) {
+        if (value <= 0) {
+            throw new Error('El valor a ser debitado debe ser mayor que cero!');
+        }
+        if (value > this.balance) {
+            throw new Error('Saldo insuficiente!');
+        }
+        this.balance -= value;
+        localStorage.setItem('balance', this.balance.toString());
+    }
+    deposit(value) {
+        if (value <= 0) {
+            throw new Error('El valor a ser depositado debe ser mayor que cero!');
+        }
+        this.balance += value;
+        localStorage.setItem('balance', this.balance.toString());
+    }
     getTransactionGroups() {
         const transactionGroups = [];
-        const transactionList = structuredClone(transactions);
+        const transactionList = structuredClone(this.transactions);
         const sortedTransactions = transactionList.sort((t1, t2) => t2.date.getTime() - t1.date.getTime());
         let currentGroupLabel = '';
         for (let transaction of sortedTransactions) {
@@ -47,22 +58,36 @@ const Account = {
             transactionGroups.at(-1).transactions.push(transaction);
         }
         return transactionGroups;
-    },
+    }
     registerTransaction(newTransaction) {
         if (newTransaction.transactionType == TransactionType.DEPOSIT) {
-            deposit(newTransaction.value);
+            this.deposit(newTransaction.value);
         }
         else if (newTransaction.transactionType == TransactionType.TRANSFER ||
             newTransaction.transactionType == TransactionType.BILL_PAYMENT) {
-            debit(newTransaction.value);
+            this.debit(newTransaction.value);
             newTransaction.value *= -1;
         }
         else {
             throw new Error('Tipo de Transacción es inválido!');
         }
-        transactions.push(newTransaction);
+        this.transactions.push(newTransaction);
         console.log(this.getTransactionGroups());
-        localStorage.setItem('transactions', JSON.stringify(transactions));
-    },
-};
-export default Account;
+        localStorage.setItem('transactions', JSON.stringify(this.transactions));
+    }
+}
+export default new Account('Juana Ferreira');
+export class AccountPremium extends Account {
+    premiumBonus;
+    constructor(name, bonus) {
+        super(name);
+        this.premiumBonus = bonus;
+    }
+    registerTransaction(newTransaction) {
+        if (newTransaction.transactionType === TransactionType.DEPOSIT) {
+            newTransaction.value += this.premiumBonus;
+        }
+        super.registerTransaction(newTransaction);
+    }
+}
+const luis = new AccountPremium("Luis Lopez", 100);

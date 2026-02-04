@@ -1,6 +1,6 @@
-import { formatDate, formatCurrency } from '../utils/formatters';
-import { FormatDate } from '../types/FormatDate';
-import Account from '../types/Account';
+import { formatDate, formatCurrency } from '../utils/formatters.js';
+import { FormatDate } from '../types/FormatDate.js';
+import Account from '../types/Account.js';
 const balanceElement = document.querySelector('.balance-value .value');
 const accessDateElement = document.querySelector('.block-balance time');
 if (accessDateElement != null) {

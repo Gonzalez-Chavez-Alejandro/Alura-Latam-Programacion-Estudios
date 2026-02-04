@@ -1,6 +1,6 @@
-import { GroupTransaction } from "./GroupTransaction";
-import { Transaction } from "./Transaction";
-import { TransactionType } from "./TransactionType";
+import { GroupTransaction } from "./GroupTransaction.js";
+import { Transaction } from "./Transaction.js";
+import { TransactionType } from "./TransactionType.js";
 
 export class Account {
     // Atributos
