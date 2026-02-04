@@ -55,9 +55,9 @@ const Cuenta = {
         if (nuevaTransaccion.tipoTransaccion === TipoTransaccion.DEPOSITO) {
             depositar(nuevaTransaccion.valor);
         }
-        else if (nuevaTransaccion.tipoTransaccion === TipoTransaccion.TRANSFERENCIA ||
-            nuevaTransaccion.tipoTransaccion === TipoTransaccion.PAGO_FACTURA) {
+        else if (nuevaTransaccion.tipoTransaccion === TipoTransaccion.TRANSFERENCIA || nuevaTransaccion.tipoTransaccion === TipoTransaccion.PAGO_FACTURA) {
             debitar(nuevaTransaccion.valor);
+            nuevaTransaccion.valor = -nuevaTransaccion.valor;
         }
         else {
             throw new Error("Tipo de transacción invalido");
