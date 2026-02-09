@@ -6,3 +6,12 @@ const pDescTarea = document.querySelector(".app__section-active-task-description
 const removerConcluidasBtn = document.getElementById("btn-remover-concluidas") as HTMLButtonElement//button
 const removerTodasBtn = document.getElementById("btn-remover-todas") as HTMLButtonElement
 
+interface Tarea{
+    description:string
+    complete?: boolean
+}
+let tareas = JSON.parse(localStorage.getItem("tareas")|| '""') || []
+
+let tareaSeleccionada = null
+let liTareaSeleccionada = null
+console.log(tareas)
