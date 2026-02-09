@@ -53,7 +53,7 @@ function cambiarContexto(contexto) {
         botonContexto.classList.remove('active');
     });
     html.setAttribute('data-contexto', contexto);
-    banner.setAttribute('src', `/imagenes/${contexto}.png`);
+    banner.setAttribute('src', `./imagenes/${contexto}.png`);
     switch (contexto) {
         case "enfoque":
             titulo.innerHTML = `
@@ -104,13 +104,13 @@ function iniciarOpausar() {
     audioPlay.play();
     idIntervalo = setInterval(cuentaRegresiva, 1000);
     textoIniciarPausar.textContent = "Pausar";
-    iconoIniciarPausar.setAttribute('src', `/imagenes/pause.png`);
+    iconoIniciarPausar.setAttribute('src', `./imagenes/pause.png`);
 }
 
 function reiniciar() {
     clearInterval(idIntervalo);
     textoIniciarPausar.textContent = "Comenzar";
-    iconoIniciarPausar.setAttribute('src', `/imagenes/play_arrow.png`);
+    iconoIniciarPausar.setAttribute('src', `./imagenes/play_arrow.png`);
     idIntervalo = null;
 }
 
