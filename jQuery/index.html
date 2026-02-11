@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendiendo JQuery</title>
+    <script src="assets/js/jquery-4.0.0.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</head>
+
+<body>
+    <h1>Aprendiendo JQuery</h1>
+    <button id="btn_hide">Hide</button>
+    <button id="btn_borrar_p">Borrar Parrafo</button>
+    <div id="caja"></div>
+    <button id="btn_test_oculto">Test_Oculto</button>
+    <button id="btn_test_visible">Test_Visible</button>
+    <div id="test"></div>
+
+    <div class="selectores_jQuery">
+        <h1>Selectores</h1>
+        <h2>$("*")</h2>
+        <p>Selecciona todos los elementos</p>
+
+        <h2>$(this)</h2>
+        <p class="prueba_this">this apunta al elemento que disparó el evento.</p>
+
+        <h2>$("p.intro")</h2>
+        <p>Es quel elemento HTML que su clase class sea intro</p>
+
+        <h2 class="p_first">$("p:first")</h2>
+        <p>El Primer elemento "HTML:first" </p>
+        <p>Segundo</p>
+        <p>Tercero</p>
+
+        <h2>$("ul li:first")</h2>
+        <p>Seleccionar el primer li</p>
+        <ul>
+            <li>Elemento 1</li> <!-- índice 0 -->
+            <li>Elemento 2</li> <!-- índice 1 -->
+            <li>Elemento 3</li> <!-- índice 2 -->
+            <li>Elemento 4</li>
+            <li>Elemento 5</li>
+        </ul>
+
+        <h2>$("ul li:first-child")</h2>
+        <p>se usa para seleccionar un elemento que es el primer hijo de su padre.</p>
+        <ul id="lista1">
+            <li>Item A1</li>
+            <li>Item A2</li>
+        </ul>
+
+        <h2>$("[href]")</h2>
+        <p><a href="https://www.w3schools.com/html/">HTML Tutorial</a></p>
+        <p><a href="https://www.w3schools.com/css/">CSS Tutorial</a></p>
+        <button id="btn_href_ejem">Click me</button>
+
+
+        <h2>$("a[target='_blank']")</h2>
+        <p>target indica dónde se abrirá el enlace.
+            _blank significa: abrir en una nueva pestaña o ventana del
+            navegador.</p>
+
+        <h2>$("a[target!='_blank']")</h2>
+        <p>$("[id='']") // Selecciona elementos cuyo id está vacío
+            $("[id]") // Selecciona todos los elementos que **tienen** un id
+            $(":not([id])") // Selecciona todos los elementos que **NO tienen** un id</p>
+
+        <h2>$(":button")</h2>
+        <p>Para seleccionar el elemento</p>
+        <h2>$("tr:even")</h2>
+        <p>Es utilizada para filas pares</p>
+        <h2>$("tr:odd")</h2>
+        <p>Es utilizada para filas impares</p>
+
+        <h2>.dblclick</h2>
+        <p id="btn_dblclick">Doble Click en este elemento</p>
+
+        <h2>.mouseenter</h2>
+        <p>se dispara si el mouse se mueve sobre un hijo dentro del elemento</p>
+        <div id="miDiv">Pasa el mouse aquí</div>
+
+        <h2>.mouseleave</h2>
+        <p>Pasa al quitar el mause del elemento mouseleave</p>
+        <div id="miDiv_mouseleave">Pasa el mouse aquí mouseleave</div>
+        
+        <h2>.hover</h2>
+        <p>El método toma dos funciones y es una combinación de los métodos y .hover()mouseenter()mouseleave()
+            La primera se ejecuta cuando el ratón introduce el elemento HTML, y el segundo La función es ejecutado
+            cuando el ratón abandona el elemento HTML:</p>
+        <div id="miDiv_hover">Pasa el mouse aquí mouseleave</div>
+    </div>
+
+    <h2>Focus y blur</h2>
+    <p>focus le doy clic al elemento</p>
+    <p>blur cuando le picas fuera del elemento </p>
+
+    Name: <input class="input__f_y_b" type="text" name="fullname"><br>
+    Email: <input class="input__f_y_b" type="text" name="email">
+    
+    <h2>.on</h2>
+    <p id="p_on">Adjunta múltiples gestores de eventos a un elemento </p>
+    <input type="text" value="No puedes cambiar esto" id="miInput">
+
+</body>
+</html>

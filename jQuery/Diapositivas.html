@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diapositivas</title>
+    <link rel="stylesheet" href="./assets/css/diapositivas.css">
+    <script src="assets/js/jquery-4.0.0.min.js"></script>
+    <script src="assets/js/Diapositivas.js"></script>
+    <script src="./assets/js/Animate.js"></script>
+</head>
+
+<body>
+    <h2>slideDown()</h2>
+    <p>El método jQuery se utiliza para deslizar un elemento hacia abajo.slideDown()</p>
+    <div id="flip">Click to slide down panel</div>
+    <div id="panel">Hello world!</div>
+
+    <h2>slideUp()</h2>
+    <p>El método jQuery se utiliza para deslizar hacia arriba un elemento.slideUp()</p>
+
+    <h2>slideToggle()</h2>
+    <p>El método jQuery alterna entre los métodos y (y).slideToggle()slideDown()slideUp()</p>
+    <div id="flip2">Click to slide the panel down or up</div>
+    <div id="panel2">Hello world!</div>
+
+    <h1>animate()</h1>
+    <p>El método jQuery se utiliza para crear animaciones personalizadas.animate()</p>
+    <button id="btn_animate">Start Animation</button><br><br>
+    <div id="div_animate" style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
+
+    <br><br><br><br><br><br>
+
+    <h2>Manipular múltiples propiedades</h2>
+    <button id="btn_anite_left">Start Animation</button><br><br>
+    <div id="div_animate_left" style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
+
+    <br><br><br><br><br><br>
+
+    <h2>Usando valores relativos</h2>
+    <p>También es posible definir valores relativos (el valor es entonces relativo a el valor actual del elemento). Esto
+        se hace poniendo += o -= delante de la Valor</p>
+    <button id="btn_animate_mas">Start Animation</button> <br><br>
+    <div id="div_animate_mas" style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
+
+    <br><br><br><br><br><br>
+
+    <h2>Usando valores relativos</h2>
+    <p>Incluso puedes especificar el valor de animación de una propiedad como "", "" o "":showhidetoggle</p>
+    <button id="btn_animation_valor_relativo">Start Animation</button><br><br>
+    <div id="div_animation_valor_relativo" style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
+
+    <br><br><br><br><br><br>
+
+    <h2>Utiliza funcionalidad de cola</h2>
+    <p>Por defecto, jQuery incluye funcionalidad de cola para animaciones.
+        Esto significa que si escribes varias llamadas una tras otra, jQuery crea una cola "interna" con estas llamadas
+        a métodos. Luego ejecuta el animar llama UNO por UNO.animate()</p>
+    <button id="btn_animate_FCola">Start Animation</button>
+    <div id="div_animate_FCola" style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
+
+    <br><br><br><br><br><br>
+
+    <h2>Aumenta el tamaño de la fuente del texto:div</h2>
+    <button id="btn_aumentar_tamno">Start Animation</button><br><br>
+    <div id="div_aumentar_tamno" style="background:#98bf21;height:100px;width:200px;position:absolute;">HELLO</div>
+    <br><br><br><br><br><br>
+
+    <h1>Método jQuery stop()</h1>
+    <p>El método jQuery se utiliza para detener una animación o efecto antes de que termine.stop()</p>
+    <button id="stop">Stop sliding</button>
+
+    <div id="flip3">Click to slide down panel</div>
+    <div id="panel3">Hello world!</div>
+    
+    <br><br><br><br><br><br>
+
+
+</body>
+
+</html>
