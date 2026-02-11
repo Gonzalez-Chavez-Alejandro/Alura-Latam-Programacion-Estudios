@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="assets/js/jquery-4.0.0.min.js"></script>
+    <script src="assets/js/JQuery_HTML_get_set copy.js"></script>
+</head>
+<style>
+    .important {
+        font-weight: bold;
+        font-size: xx-large;
+    }
+
+    .blue {
+        color: blue;
+    }
+
+    .red {
+        color: red;
+    }
+</style>
+
+<body>
+    <h1>ADD </h1>
+    <h2>append()</h2>
+    <p>El método jQuery inserta contenido AL FINAL de los elementos HTML seleccionados.append()</p>
+    <p>This is a paragraph.</p>
+    <p>This is another paragraph.</p>
+
+    <ol>
+        <li>List item 1</li>
+        <li>List item 2</li>
+        <li>List item 3</li>
+    </ol>
+
+    <button id="btn1">Append text</button>
+    <button id="btn2">Append list items</button>
+
+    <h2>prepend()</h2>
+    <p>This is a paragraph.</p>
+    <p id="p_prepend">This is another paragraph.</p>
+
+    <ol id="ol_prepend">
+        <li>List item 1</li>
+        <li>List item 2</li>
+        <li>List item 3</li>
+    </ol>
+
+    <button id="btn3">Prepend text</button>
+    <button id="btn4">Prepend list item</button>
+
+    <br>
+
+    <h2>Añadir varios elementos nuevos con append() y prepend()</h2>
+    <p>This is a paragraph.</p>
+    <button onclick="appendText()">Append text</button>
+
+    <h2>Before y After</h2>
+    <img src="https://www.citypng.com/public/uploads/preview/-11598885677unod7kre54.png" alt="jQuery" width="300"
+        height="140"><br><br>
+
+    <button id="btn5">Insert before</button>
+    <button id="btn6">Insert after</button>
+
+    <h1>Remove Elements</h1>
+    <h2 id="h2_title_remove">Remove Elements/Content</h2>
+    <p>El método jQuery elimina el(los) elemento(s) seleccionado(s) y su hijo elementos.remove()</p>
+    <button id="btn_remove">Remove h2 element</button>
+
+    <br>
+
+    <h2>empty()</h2>
+    <p>El método jQuery elimina los elementos hijos del(los) elemento(s) seleccionado(s).empty()</p>
+    <button id="btn_empty_ol_de_prepend">Empty ol element de prepend</button>
+    <br><br>
+
+    <h1>Get and Set CSS Classes</h1><br>
+    <h2>addClass()</h2>
+    <p>añadir atributos de clase a diferentes elementos</p>
+    <div>This is some important text!</div>
+    <button id="btn_addClass">Add classes to elements</button>
+    <br><br>
+
+    <h2>toggleClass()</h2>
+    <p>debe existir el color en la clase dentro de css para que lo ponga y lo quite</p>
+    <button id="btn_toggleClass">Add classes to elements</button>
+    <br>
+
+    <h2>removeClass</h2>
+    <p>remueve la clase </p>
+    <button id="btn_removeclass">remove clases to elements</button>
+
+    <h1>Dimensiones</h1>
+    <p>.height() Solo  Contenido</p>
+    <p>.innerHeight()  Contenido + padding</p>
+    <p>.outerHeight()  Contenido + padding + borde</p>
+    .outerHeight(true) Contenido + padding + borde + margen
+</body>
+
+</html>

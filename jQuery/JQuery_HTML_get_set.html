@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="assets/js/jquery-4.0.0.min.js"></script>
+    <script src="assets/js/JQuery_HTML_get_set.js"></script>
+</head>
+
+<body>
+    <h1>GET</h1>
+    <h2>Obtener contenido - text(), html() y val()</h2>
+    <p>text() - Establece o devuelve el contenido textual de los elementos seleccionados</p>
+    <p>html() - Establece o devuelve el contenido de elementos seleccionados (incluido el marcado HTML)</p>
+    <p>val() - Establece o devuelve el valor de los campos de formulario</p>
+    <p id="test">This is some <b>bold</b> text in a paragraph.</p>
+    <button id="btn1">Show Text</button>
+    <button id="btn2">Show HTML</button>
+
+    <h2>El siguiente ejemplo demuestra cómo obtener el valor de un campo de entrada con el método jQuery:val()</h2>
+    <p>Capturar
+        var valor = $("#id").val();
+        Guardas lo que el usuario escribió</p>
+    <p>
+    <p>devolver el valor de un campo de entrada.</p>
+    <p>Asignar $("#id").val("nuevo valor"); Cambias el contenido del input</p>
+    </p>
+    <p>Name: <input type="text" id="input_test_val" value="Mickey Mouse"></p>
+    <button id="btn_val">Show Value</button>
+
+    <h2>Obtener atributos - attr()</h2>
+    <p>El método jQuery se utiliza para obtener valores de atributos.attr()</p>
+    <p>Leer o modificar atributos HTML src, href, id, type, title, disabled, se usa .attr().</p>
+    <p><a href="https://www.w3schools.com" id="w3s">W3Schools.com</a></p>
+
+    <button id="btn_attr">Show href Value</button>
+    <br>
+    <h1>SET</h1>
+    <p>text(), html(), val()</p>
+    <p id="test1">This is a paragraph.</p>
+    <p id="test2">This is another paragraph.</p>
+
+    <p>Input field: <input type="text" id="test3" value="Mickey Mouse"></p>
+
+    <button id="btn_1">Set Text</button>
+    <button id="btn_2">Set HTML</button>
+    <button id="btn_3">Set Value</button>
+
+    <h2>attr</h2>
+    <p><a href="https://www.w3schools.com" id="a_w3s_attr">W3Schools.com</a></p>
+
+    <button id="btn_attr_href">Change href Value</button>
+
+</body>
+
+</html>

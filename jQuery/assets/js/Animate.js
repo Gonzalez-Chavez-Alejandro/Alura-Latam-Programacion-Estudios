@@ -44,8 +44,21 @@ $(document).ready(function () {
     $("#flip3").click(function () {
         $("#panel3").slideDown(5000);
     });
+
     $("#stop").click(function () {
         $("#panel3").stop();
     });
+
+    $("#btn_callback_functions").click(function () {
+        $(".p_callback_functions").hide("slow", function () {
+            alert("The paragraph is now hidden");
+        });
+    });
+
+    //**** */
+    $("#btn_animation_encadenamiento").click(function () {
+        $("#p1").css("color", "red").slideUp(2000).slideDown(2000);
+    });
+
 
 })
